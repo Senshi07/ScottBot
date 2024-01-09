@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+mainClassName = 'Senshi07.scottbot.Scott'
+version '1.2.0_04'
+sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://m2.dv8tion.net/releases'
+    }
+}
+
+dependencies {
+    implementation("net.dv8tion:JDA:5.0.0-beta.19")
+    implementation("com.sedmelluq:lavaplayer:1.3.78")
+    implementation("ch.qos.logback:logback-classic:1.4.12")
+    implementation("io.github.cdimascio:dotenv-java:2.2.4")
+}
+
+compileJava.options.encoding = 'UTF-8'
