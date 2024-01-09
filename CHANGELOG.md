@@ -2,7 +2,7 @@
 This document tracks changes made to the ScottBot project including changes made to 
 the application's predecessor, MaxBot, which was used to create this application
 
-### ScottBot 1.2.1
+### ScottBot 1.2.0
 - Added Slash Commands Functionality to all command classes
 - Removed redundant Help Command
 - Removed redundant getUsage() method from all command classes
