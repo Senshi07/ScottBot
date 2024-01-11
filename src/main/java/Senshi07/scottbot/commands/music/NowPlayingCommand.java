@@ -74,7 +74,7 @@ public class NowPlayingCommand extends Command
         String completionBar = calculateCompletionBar(completePercentage);
         EmbedBuilder nowPlayingResponse = new EmbedBuilder()
                 .setTitle(defaultTitle)
-                .setDescription("Now Playing:\n `" + info.title + " ` by `" + info.author + "`" +
+                .setDescription("Currently streaming:\n `" + info.title + " ` by `" + info.author + "`" +
                         "\n Link: " + info.uri +
                         "\nIn Voice Channel: `" + selfVoiceState.getChannel().getName() + "`" +
                         "\n" + runtime  + completionBar + duration);
@@ -82,7 +82,7 @@ public class NowPlayingCommand extends Command
         interaction.replyEmbeds(nowPlayingResponse.build()).queue();
     }
 
-    private static String calculateCompletionBar(double completePercentage) {
+    public static String calculateCompletionBar(double completePercentage) {
         String completionBar = "";
         if (inRange(completePercentage, 0,9))
         {
