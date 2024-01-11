@@ -5,7 +5,7 @@ plugins {
 }
 
 mainClassName = 'Senshi07.scottbot.Scott'
-version '1.2.0_05'
+version '1.2.1'
 sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
