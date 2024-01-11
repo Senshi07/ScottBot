@@ -1,9 +1,11 @@
-package Senshi07.scottbot.utils.lavaplayer;
+package Senshi07.scottbot.utils.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -14,6 +16,7 @@ public class TrackScheduler extends AudioEventAdapter
     public final AudioPlayer player;
     public final BlockingQueue<AudioTrack> queue;
     public boolean repeatEnabled = false;
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrackScheduler.class);
 
 
     public TrackScheduler(AudioPlayer player)
@@ -39,6 +42,9 @@ public class TrackScheduler extends AudioEventAdapter
 
     @Override
     public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
+        if (queue.isEmpty()) {
+
+        }
         if (endReason.mayStartNext) {
             if (this.repeatEnabled) {
                 this.player.startTrack(track.makeClone(), false);

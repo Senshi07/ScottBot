@@ -2,6 +2,7 @@ package Senshi07.scottbot;
 
 import Senshi07.scottbot.utils.cmd.CommandManager;
 import Senshi07.scottbot.utils.cmd.Listener;
+import com.sedmelluq.discord.lavaplayer.jdaudp.NativeAudioSendFactory;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -29,11 +30,12 @@ public class Scott
     {
         // NOTE TO SELF: SWITCH ENVIRONMENT VARIABLE "DEV_TOKEN" to "TOKEN" BEFORE BUILDING THE JAR LIBRARY
         jda = JDABuilder
-                .create(Config.get("TOKEN"),
+                .create(Config.get("DEV_TOKEN"),
                         GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES)
                 .setChunkingFilter(ChunkingFilter.ALL)
                 .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.ONLINE_STATUS,
                         CacheFlag.EMOJI, CacheFlag.STICKER, CacheFlag.SCHEDULED_EVENTS)
+                .setAudioSendFactory(new NativeAudioSendFactory(400))
                 .addEventListeners(new Listener())
                 .build()
                 .awaitReady();

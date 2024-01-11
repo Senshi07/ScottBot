@@ -1,4 +1,4 @@
-package Senshi07.scottbot.utils.lavaplayer;
+package Senshi07.scottbot.utils.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
@@ -11,6 +11,8 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.unions.MessageChannelUnion;
 import net.dv8tion.jda.api.interactions.commands.SlashCommandInteraction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,6 +32,7 @@ public class PlayerManager
     private static PlayerManager INSTANCE;
     private static Map<Long, GuildMusicManager> musicManager;
     private static AudioPlayerManager playerManager;
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerManager.class);
 
     public PlayerManager()
     {
@@ -123,8 +126,11 @@ public class PlayerManager
             @Override
             public void loadFailed(FriendlyException e)
             {
+                String guild = interaction.getGuild().getName();
+                String VC = interaction.getGuild().getSelfMember().getVoiceState().getChannel().getName();
                 String loadFailedResponse = ":stop_sign: Load failed. Please try again.";
                 channel.sendMessage(loadFailedResponse).queue();
+                LOGGER.error("Load Failure in " + VC + " of " + guild + ".");
             }
         });
     }

@@ -1,4 +1,4 @@
-package Senshi07.scottbot.utils.lavaplayer;
+package Senshi07.scottbot.utils.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;

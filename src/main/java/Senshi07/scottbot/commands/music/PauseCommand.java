@@ -1,9 +1,9 @@
 package Senshi07.scottbot.commands.music;
 
-import Senshi07.scottbot.utils.lavaplayer.GuildMusicManager;
+import Senshi07.scottbot.utils.music.GuildMusicManager;
 import Senshi07.scottbot.utils.cmd.Command;
 import Senshi07.scottbot.utils.cmd.CommandContext;
-import Senshi07.scottbot.utils.lavaplayer.PlayerManager;
+import Senshi07.scottbot.utils.music.PlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
