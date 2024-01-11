@@ -14,34 +14,14 @@ import java.util.List;
  * @author Senshi
  * @since 0.1.1-alpha
  */
-public class CommandContext
+public record CommandContext(SlashCommandInteractionEvent event, List<String> args)
 {
-    private final SlashCommandInteractionEvent event;
-    private final List<String> args;
-
-    public CommandContext(SlashCommandInteractionEvent event, List<String> args) {
-        this.event = event;
-        this.args = args;
-    }
-
     public Guild getGuild() {
         return this.event.getGuild();
     }
 
-
-    public TextChannel getChannel()
-    {
+    public TextChannel getChannel() {
         return (TextChannel) this.event.getChannel();
-    }
-
-    public List<String> args()
-    {
-        return this.args;
-    }
-
-    public SlashCommandInteractionEvent event()
-    {
-        return this.event;
     }
 
     public Member getMember() {
