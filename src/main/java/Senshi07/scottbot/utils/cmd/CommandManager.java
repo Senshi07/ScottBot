@@ -104,7 +104,8 @@ public class CommandManager
                         Commands.slash(StopCommand.name, StopCommand.description),
                         Commands.slash(NowPlayingCommand.name, NowPlayingCommand.description),
                         Commands.slash(RepeatCommand.name, RepeatCommand.description),
-                        Commands.slash(SkipCommand.name, SkipCommand.description))
+                        Commands.slash(SkipCommand.name, SkipCommand.description),
+                        Commands.slash(QueueCommand.name, QueueCommand.description))
                 .queue();
 
         LOGGER.info("Commands updated successfully");

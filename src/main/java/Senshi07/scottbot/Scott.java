@@ -39,7 +39,7 @@ public class Scott
                 .awaitReady();
 
 
-        jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.listening(Config.get("DEFAULT_PRESENCE")));
+        jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.listening(Config.get("PRESENCE")));
 
         CommandManager.updateSlashCommands();
     }
