@@ -72,6 +72,7 @@ public class NowPlayingCommand extends Command
         final String runtime = String.format("%02d", runtimeMinutes) + ":" + String.format("%02d", runtimeSeconds);
 
         String completionBar = calculateCompletionBar(completePercentage);
+
         EmbedBuilder nowPlayingResponse = new EmbedBuilder()
                 .setTitle(defaultTitle)
                 .setDescription("Currently streaming:\n `" + info.title + " ` by `" + info.author + "`" +

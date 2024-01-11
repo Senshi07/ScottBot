@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This class is used to pass the parameters of Command classes to the
@@ -74,7 +75,7 @@ public class CommandManager
     {
         String[] split = event.getCommandString().replaceFirst("/", "").replaceFirst("input:", "")
                 .split("\\s+");
-        LOGGER.info(Arrays.toString(split));
+        LOGGER.info(Arrays.toString(split) + " Channel: " + event.getChannel().getName() + ", Guild: " + Objects.requireNonNull(event.getGuild()).getName());
 
         String invoke = split[0].toLowerCase();
         Command cmd = this.getCommand(invoke);
@@ -91,10 +92,11 @@ public class CommandManager
 
     public static void updateSlashCommands()
     {
+        //Scott.jda.updateCommands().queue();
         Scott.jda.updateCommands().addCommands(
                         // General Commands
                         Commands.slash(PingCommand.name,PingCommand.description),
-                        // Music Commands0
+                        // Music Commands
                         Commands.slash(JoinCommand.name, JoinCommand.description),
                         Commands.slash(DisconnectCommand.name, DisconnectCommand.description),
                         Commands.slash(PlayCommand.name, PlayCommand.description)
