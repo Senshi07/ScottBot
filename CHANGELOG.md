@@ -2,8 +2,12 @@
 This document tracks changes made to the ScottBot project including changes made to 
 the application's predecessor, MaxBot, which was used to create this application
 
-### ScottBot v1.2.2-beta.3
-- Implement JDA-NAS library
+### ScottBot v1.2.2-beta.2
+- Implement Auto-disconnect function.
+- Implement Task Scheduling framework
+
+### ScottBot v1.2.2-beta.1
+- Implement JDA-NAS library.
 
 ### ScottBot v1.2.1
 - Implemented the Queue Command

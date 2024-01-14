@@ -1,5 +1,6 @@
 package Senshi07.scottbot;
 
+import Senshi07.scottbot.utils.Tasks.PlayerCleanup;
 import Senshi07.scottbot.utils.cmd.CommandManager;
 import Senshi07.scottbot.utils.cmd.Listener;
 import com.sedmelluq.discord.lavaplayer.jdaudp.NativeAudioSendFactory;
@@ -49,6 +50,7 @@ public class Scott
     @SuppressWarnings("InstantiationOfUtilityClass")
     public static void main(String[] args) throws InterruptedException
     {
+        runTasks();
         new Scott();
 
 
@@ -70,5 +72,8 @@ public class Scott
                 LOGGER.warn("Invalid Command.");
             }
         }
+    }
+    public static void runTasks() {
+        new PlayerCleanup("PlayerCleanup");
     }
 }

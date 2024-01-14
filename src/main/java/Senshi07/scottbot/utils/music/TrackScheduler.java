@@ -41,10 +41,9 @@ public class TrackScheduler extends AudioEventAdapter
     }
 
     @Override
-    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
-        if (queue.isEmpty()) {
+    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason)
+    {
 
-        }
         if (endReason.mayStartNext) {
             if (this.repeatEnabled) {
                 this.player.startTrack(track.makeClone(), false);

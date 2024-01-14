@@ -2,6 +2,7 @@ package Senshi07.scottbot.commands.music;
 
 import Senshi07.scottbot.utils.cmd.CommandContext;
 import Senshi07.scottbot.utils.cmd.Command;
+import Senshi07.scottbot.utils.music.PlayerManager;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
@@ -48,6 +49,7 @@ public class JoinCommand extends Command {
 
         audioManager.openAudioConnection(memberChannel);
         audioManager.setSelfDeafened(true);
+        PlayerManager.getInstance();
 
         String connectedResponse = ":notes: Connecting to `" + memberChannel.getName() + "`";
         interaction.reply(connectedResponse).queue();
